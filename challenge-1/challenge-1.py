@@ -1,11 +1,6 @@
 import cv2
 import numpy as np
 
-userinp = input('What image do you want to look at: ')
-
-userimage = cv2.imread('assets/Metal/{}'.format(userinp))
-image = cv2.imread('assets\Metal\Metal_1.jpg')
-
 def getcontour(image, userimage):
     basecontour = contour(image)
     usercontour = contour(userimage)
@@ -32,7 +27,25 @@ def overlaycontours(contours, userimage, color):
         cv2.drawContours(userimage, [contour], -1, color, 2)
     return userimage
 
-finalimage = getcontour(image, userimage)
 
-cv2.imshow('contoured', finalimage)
-cv2.waitKey(0)
+
+
+
+
+
+
+
+def main():
+
+    userinp = input('What image do you want to look at: ')
+
+    userimage = cv2.imread('assets/Metal/{}'.format(userinp))
+    image = cv2.imread('assets\Metal\Metal_1.jpg')
+
+
+    finalimage = getcontour(image, userimage)
+
+    cv2.imshow('contoured', finalimage)
+    cv2.waitKey(0)
+
+main()
